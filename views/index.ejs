@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelfspace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300..800&family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+</head>
+<body>
+    <h1 class="reading-list">Reading list</h1>
+    
+    <!-- FILTER SELECTION -->
+    <div class="filter">
+        <div>
+            <h3>Filter by reading status:</h3>
+        </div>
+        <div>
+            <form>
+            <select name="status" onchange="this.form.submit()">
+            <option value="">All</option>
+            <option value="reading" <%= status === "reading" ? "selected": "" %>>Reading</option>
+            <option value="completed" <%= status === "completed" ? "selected": "" %>>Completed</option>
+            <option value="to-read" <%= status === "to-read" ? "selected": "" %>>To Read</option>
+            </select>
+        </form> 
+        </div>
+        
+    </div>
+    <div>
+        <table>
+            <tr class="headings">
+                <th>Title</th>
+                <th>Author</th>
+                <th>Status</th>
+                <!-- <th>Review</th> -->
+                <th>Rating</th>
+                <th>Actions</th>
+            </tr>
+            
+                <td>
+                    <% books.forEach(x =>{ %>
+                        <tr>
+                            <td><%= x.title %> </td>
+                            <td><%= x.author %></td>
+                            <td><%= x.status %></td>
+                            <td><%= x.rating %></td>
+                            <!-- <td><%= x.review %></td> -->
+                            <td class="actions">
+                                <!-- edit button -->
+                                <a href="/edit/<%= x._id %>">Edit</a>
+                                <!-- delete button -->
+                                <form action="/delete/<%= x.id %>?_method=DELETE"
+                                    method="post">
+                                <button type="submit">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                </div>
+            <% }) %>
+                </td>
+                
+            
+            
+            </table>
+    </div>
+
+    <div class="xyz">
+        <a href="/add-book">Add new book</a>
+    </div>
+</body>
+</html>

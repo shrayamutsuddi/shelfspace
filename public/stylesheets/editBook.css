@@ -1,0 +1,27 @@
+*{
+    background-color: #FFF7F7;
+    font-family: Mona Sans;
+}
+h1{
+    text-align: center;
+    font-size: 40px;
+    color: black;
+}
+.xyz{
+    background-color: #F7FFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+     width: 350px;          /* controls box width */
+    padding: 20px;         /* space inside box */
+    margin: 40px auto;  
+}
+.xyz input,
+.xyz select,
+.xyz button {
+    padding: 10px;
+    font-size: 20px;
+    background-color: white;
+}

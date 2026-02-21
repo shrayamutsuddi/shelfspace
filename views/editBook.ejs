@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit book</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300..800&family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/editBook.css">
+</head>
+<body>
+    <h1>Edit Book</h1>
+    <div class="xyz">
+        <form action="/edit/<%= book._id %>?_method=PUT" method="POST">
+        <input type="text" name="title" value="<%= book.title %>">
+        <input type="text" name="author" value="<%= book.author %>">
+        <button type="submit">Update Book</button>
+    </form>
+    </div>
+    
+</body>
+</html>
