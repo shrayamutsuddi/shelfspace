@@ -1,8 +1,12 @@
 require("./connection");
 const express = require("express");
 const methodOverride = require("method-override");
+const { default: mongoose } = require("mongoose");
 const app = express();
 const path = require("path");
+require("dotenv").config();
+const connectDB = require("./connection");
+connectDB();
 //
 app.use(methodOverride("_method"));
 app.use(express.json());
