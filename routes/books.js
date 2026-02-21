@@ -1,5 +1,8 @@
 const Book = require("../models/book");
 module.exports = function (app) {
+    app.get("/", (req, res) => {
+    res.redirect("/books");
+    });
     app.get("/books", async(req, res) => {
         const {status, msg} = req.query;
         let filter = {};
